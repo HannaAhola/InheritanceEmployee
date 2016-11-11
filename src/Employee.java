@@ -39,5 +39,9 @@ public abstract class Employee {
 	
 	}
 	
+	public static enum Gender {
+		FEMALE,
+		MALE
+	}
 }
 
