@@ -1,11 +1,26 @@
+/*
+ * INHERITANCE, EMPLOYEE
+ * Main class
+ * Lexicon Liljeholmen, Java4Women, 2016-11-11
+ * Group 2, Nina, Hanna, Bruna 
+ */
+
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
-public class EmployeeMain { 
-	
-	
-	public static void main(String[] args) { 
-		
+public class EmployeeMain { // vi skapar objekten/vår arraylist i main. I
+	// klasser specificecas/skapar mallar. Main är vår
+	// spelyta där vi skapar utifrån utifrån
+	// informationen i våra klasser
+	// när vi kör programmet körs alltid main
+	static Scanner sc = new Scanner (System.in);
+	static int choice = -1;
+
+
+	public static void main(String[] args) {
+		//Company myCompany = new Company();
 		ArrayList <Employee> myEmployees = new ArrayList <>();
 		Admin a1 = new Admin ("Lars Jansson", 25000, "Administrator", 1964010111, Employee.Gender.MALE);
 		Support s1 = new Support ("Sara Issacs", 22000, "Support", 1995020222, Employee.Gender.FEMALE);
@@ -34,28 +49,173 @@ public class EmployeeMain {
 		myEmployees.add(d3); myEmployees.add(a4); myEmployees.add(s4); myEmployees.add(d4); 
 		myEmployees.add(a5); myEmployees.add(s5); myEmployees.add(d5); myEmployees.add(a6); 
 		myEmployees.add(s6); myEmployees.add(d6); myEmployees.add(s7); myEmployees.add(d7); 
-		
-		System.out.println(a3.gender);
-	
-		double totalBonus = EmployeeMain.sumBonus(myEmployees); 
+		//int choice = -1;
+		//myCompany.seedEmployees(myEmployees);
 
-		System.out.println(totalBonus);
 
+		while (choice != 0) {		
+			EmployeeMain.mainMenu();
+			choice = sc.nextInt();
+
+			if (choice == 1) {
+				EmployeeMain.employeeManagementMenu();
+				choice = sc.nextInt();			
+			}
+			else if (choice == 2) {
+				EmployeeMain.employeeStatisticMenu();
+				choice = sc.nextInt();
+			}
+			else {
+				System.out.print("Illegal choice!\n\n");
+				EmployeeMain.mainMenu();
+				choice = sc.nextInt();
+			}
+		} // slut på while
+
+		if (choice == 0) {
+			sc.close();
+		}
+	}	
+
+
+
+
+	private static void mainMenu() {
+		System.out.println("--------------------------------------------------------");
+		System.out.println("Welcome to our company");
+		//System.out.println("\nChoose");
+		System.out.println("--------------------------------------------------------");
+		System.out.println("1. Employee management");
+		System.out.println("2. Employee statistics");
+		System.out.println("0. Exit");
+		System.out.println("Choose: ");
 	}
 
-		public static double sumBonus(ArrayList<Employee> emp){   
-		double totalBonus = 0;  
-		for (Employee currentEmployee : emp){ 
-		totalBonus+=currentEmployee.bonus();  
+	private static void employeeManagementMenu() {
+		System.out.println("\nVälj från meny");
+		System.out.println("------------------------------------------------------");
+		System.out.println("1. Registera anställd");
+		System.out.println("2. Radera anställd");
+		System.out.println("3. Uppdatera anställd");
+		System.out.println("4. Visa information om anställd");
+		System.out.println("5. Lista samtliga anställda");
+		System.out.println("6. Lista samtliga tekniker");
+		System.out.println("7. Lista samtliga receptionister");
+		System.out.println("8. Lista samtliga programmerare");
+		System.out.println("9. Återgå till huvudmeny");
+		System.out.println("0. Exit");
+		System.out.println("Choose: ");
 		
-			}
+		choice = sc.nextInt();
+		
+		switch (choice) {
+		case 1:  
+			//EmployeeMain.addEmployeeMenu();
+			break;
 
-		return totalBonus;
+		case 2:
+			//EmployeeMain.addEmployeeMenu();
+			break;
 
+		case 3:  
+			//EmployeeMain.addEmployeeMenu();
+			break;
+
+		case 4:  
+			//EmployeeMain.addEmployeeMenu();
+			break;
+
+		default:
+			break;
 		}
+
+	}
 	
+	
+
+	private static void employeeStatisticMenu() {
+		System.out.println("\nVälj från meny");
+		System.out.println("------------------------------------------------------");
+		System.out.println("1. Medellön på företaget");
+		System.out.println("2. Högsta lön på företaget");
+		System.out.println("3. Lägsta lön på företaget");
+		System.out.println("4. Total bonus på företaget");
+		System.out.println("5. Kvinnor i procent på företaget");
+		System.out.println("6. Män i procent i de olika arbetsrollerna");
+		System.out.println("7. Återgå till huvudmeny");
+		System.out.println("0. Exit");
+		System.out.println("Choose: ");
 		
+		choice = sc.nextInt();
+		
+		switch (choice) {
+		case 1:  
+			//EmployeeMain.addEmployeeMenu();
+			break;
+
+		case 2:
+			//EmployeeMain.addEmployeeMenu();
+			break;
+
+		case 3:  
+			//EmployeeMain.addEmployeeMenu();
+			break;
+
+		case 0:  
+			break;
+
+		default:
+			break;
+		}
+	}
+	
+	
+
+//	private static void addEmployeeMenu() {
+//		System.out.println("\nVilka uppgifter vill du uppdatera");
+//		System.out.println("------------------------------------------------------");
+//		System.out.println("1. Namn");
+//		System.out.println("2. Ålder");
+//		System.out.println("3. Lön");
+//		//System.out.println("4. Återgå till meny");
+//		System.out.println("0. Exit");
+//		System.out.println("Choose: ");
+//	}
+
+
+	//skapar flera objekt av typen anställda
+	//	private void seedEmployees(ArrayList<Employee> employees) {
+	//		employees.add(new Technician());
+	//		employees.add(new Technician());
+	//		employees.add(new Technician());
+	//		employees.add(new Technician());
+	//		employees.add(new Receptionist());
+	//		employees.add(new Receptionist());
+	//		employees.add(new Receptionist());
+	//		employees.add(new Receptionist());
+	//		employees.add(new Programmer());
+	//		employees.add(new Programmer());
+	//		employees.add(new Programmer());
+	//		employees.add(new Programmer());
+	//	}
+
+
+
+
+
+
+	/************************     Hannas kod  börjar här    *******************************************************************/
+	public static double sumBonus(ArrayList<Employee> emp){    //metod för att summera bonus, tar parametern arraylist 
+		double totalBonus = 0;   //den totala bonusen för alla anställda börjar från noll, inte från bonusbas 3000
+		for (Employee currentEmployee : emp){   //i array emp gå igenom varje employee. enhanced for loop: du behöver inte veta längd på array. smidigt. denna loop används för att gå igenom hela arraylist, istället för att manuellt plussa ihop allas bonusar ett och ett
+			totalBonus+=currentEmployee.bonus();  // : total bonus=total bonus+ currentEmployee.bonus  //Ett sätt att skriva   X+=5 :  X=X+5
+		}
+		return totalBonus;
+	}
+	/************************     slut på Hannas kod       *******************************************************************/
 }
+
+
 
 
 
