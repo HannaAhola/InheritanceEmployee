@@ -1,26 +1,18 @@
-import java.util.ArrayList;
+import java.util.ArrayList;    
 
-public class EmployeeMain { // vi skapar objekten/vår arraylist i main. I
-							// klasser specificecas/skapar mallar. Main är vår
-							// spelyta där vi skapar utifrån utifrån
-							// informationen i våra klasser
-							// när vi kör programmet körs alltid main
+public class EmployeeMain {  
 
-	public static void main(String[] args) { //praxis skapa objekten i Main!
+	public static void main(String[] args) {  
 		ArrayList<Employee> empl = new ArrayList<>();    
-		Technician t1 = new Technician ("Karl", 10000);  //vi skapar objekten
-		Receptionist r1 = new Receptionist ("Linda", 10000, 30); //vi skapar objekten
-		Programmer p1 = new Programmer ("Mats", 12000); //vi skapar objekten
-		empl.add(t1);   //add: metod med vilken vi addar objekten i arraylist (empl.get(1); returnerar receptionistens position i arrayen)
+		Support t1 = new Support ("Karl", 10000);   
+		Admin r1 = new Admin ("Linda", 10000, 30);  
+		Development p1 = new Development ("Mats", 12000); / 
+		empl.add(t1);   
 		empl.add(r1);
 		empl.add(p1);
 		
 		double totalBonus = EmployeeMain.sumBonus(empl); 
 		System.out.println(totalBonus);
-		
-	}
-		//andra kommandon exempel:  empl.get(1).bonus(); //här hämtar vi position 1 (=receptionist) från arraylist 
-		//System.out.println(empl.get(1).bonus()); //här körs hennes bonusmetod
 		
 
 		
