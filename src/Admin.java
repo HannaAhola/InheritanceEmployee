@@ -2,18 +2,21 @@
 
 public class Admin extends Employee {
 
-	
+	int employeeBonusBase = 300;
 	double bonus;
-	
-	public Admin (String name, double salary, int idNumber, String department, Gender gender) {  //constructor i subklassen //konstruktorn har alltid klassnamn. konstuktorn har aldrig returtyp, men det har alltid metoden
-	super(name, salary, idNumber, department, gender);       //call to constructor in superclass 
-    
-	}
-	
-	public double bonus() {             //method med returtyp double
-	bonus = employeeBonusBase;    
-	return bonus; 
+
+
+	public Admin (String name, double salary, String department, int idNumber, Gender gender) {  
+	super(name, salary, idNumber, department, gender);
 
 	}
+
+	
+	public double bonus() {
+	bonus = employeeBonusBase*getAge();
+	return bonus; 
+	}
+	
+	
 
 }
